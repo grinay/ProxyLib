@@ -9,7 +9,7 @@ Original code based on https://github.com/bentonstark/starksoft-aspen.git
 
 ```C#
 ProxyClientFactory factory = new ProxyClientFactory();
-IProxyClient proxyClient = factory.CreateProxyClient(proxy.Type, proxy.Address, Int32.Parse(proxy.Port), string.Empty, string.Empty);
+IProxyClient proxyClient = factory.CreateProxyClient(proxy.Type, proxy.Address, Int32.Parse(proxy.Port), proxy.User, proxy.Password);
 
 //Setup timeouts
 proxyClient.ReceiveTimeout = (int)TimeSpan.FromSeconds(60).TotalMilliseconds;
