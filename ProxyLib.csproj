@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <Description>TcpClient client with proxy support HTTP, , SOCKS4a, SOCKS5</Description>
+        <ReleaseVersion>1.0.1</ReleaseVersion>
+        <SynchReleaseVersion>false</SynchReleaseVersion>
+    </PropertyGroup>
+
+</Project>
