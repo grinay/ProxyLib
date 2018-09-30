@@ -1,5 +1,9 @@
 # ProxyLib
-TcpClient , Socket library with proxy support Http, Socks4, Socks4a, Socks5 was developed for new .net standard 2
+TcpClient , Socket library with proxy support Http, Socks4, Socks4a, Socks5 was developed to support:
+
+.NET Standard 2.0 and .NET Core
+
+Original code based on https://github.com/bentonstark/starksoft-aspen.git
 
 ### Usage example:
 
