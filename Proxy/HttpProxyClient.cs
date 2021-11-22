@@ -52,8 +52,8 @@ namespace ProxyLib.Proxy
         private TcpClient _tcpClientCached;
 
         private const int HTTP_PROXY_DEFAULT_PORT = 8080;
-        private const string HTTP_PROXY_CONNECT_CMD = "CONNECT {0}:{1} HTTP/1.0\r\nHOST {0}:{1}\r\n\r\n";
-        private const string HTTP_PROXY_AUTHENTICATE_CMD = "CONNECT {0}:{1} HTTP/1.0\r\nHOST {0}:{1}\r\nProxy-Authorization: Basic {2}\r\n\r\n";
+        private const string HTTP_PROXY_CONNECT_CMD = "CONNECT {0}:{1} HTTP/1.0\r\nHOST: {0}:{1}\r\n\r\n";
+        private const string HTTP_PROXY_AUTHENTICATE_CMD = "CONNECT {0}:{1} HTTP/1.0\r\nHOST: {0}:{1}\r\nProxy-Authorization: Basic {2}\r\n\r\n";
 
         private const int WAIT_FOR_DATA_INTERVAL = 50; // 50 ms
         private const int WAIT_FOR_DATA_TIMEOUT = 15000; // 15 seconds
@@ -376,7 +376,7 @@ namespace ProxyLib.Proxy
                     break;
 
                 default:
-                    msg = String.Format(CultureInfo.InvariantCulture, "Proxy destination {0} on port {1} responded with a {2} code - {3}", Utils.GetHost(_tcpClient), Utils.GetPort(_tcpClient), ((int) _respCode).ToString(CultureInfo.InvariantCulture), _respText);
+                    msg = String.Format(CultureInfo.InvariantCulture, "Proxy destination {0} on port {1} responded with a {2} code - {3}", Utils.GetHost(_tcpClient), Utils.GetPort(_tcpClient), ((int)_respCode).ToString(CultureInfo.InvariantCulture), _respText);
                     break;
             }
 
@@ -424,7 +424,7 @@ namespace ProxyLib.Proxy
             if (!Int32.TryParse(val, out code))
                 throw new ProxyException(String.Format("An invalid response code was received from proxy destination.  Server response: {0}.", line));
 
-            _respCode = (HttpResponseCodes) code;
+            _respCode = (HttpResponseCodes)code;
             _respText = line.Substring(end + 1).Trim();
         }
 
@@ -517,8 +517,8 @@ namespace ProxyLib.Proxy
         {
             try
             {
-                Object[] args = (Object[]) e.Argument;
-                e.Result = CreateConnection((string) args[0], (int) args[1]);
+                Object[] args = (Object[])e.Argument;
+                e.Result = CreateConnection((string)args[0], (int)args[1]);
             }
             catch (Exception ex)
             {
@@ -529,7 +529,7 @@ namespace ProxyLib.Proxy
         private void CreateConnectionAsync_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             if (CreateConnectionAsyncCompleted != null)
-                CreateConnectionAsyncCompleted(this, new CreateConnectionAsyncCompletedEventArgs(_asyncException, _asyncCancelled, (TcpClient) e.Result));
+                CreateConnectionAsyncCompleted(this, new CreateConnectionAsyncCompletedEventArgs(_asyncException, _asyncCancelled, (TcpClient)e.Result));
         }
 
         #endregion
