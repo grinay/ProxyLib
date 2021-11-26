@@ -5,6 +5,7 @@
         <Description>TcpClient client with proxy support HTTP, , SOCKS4a, SOCKS5</Description>
         <ReleaseVersion>1.0.1</ReleaseVersion>
         <SynchReleaseVersion>false</SynchReleaseVersion>
+        <PackageVersion>1.0.2</PackageVersion>
     </PropertyGroup>
 
     <ItemGroup>
