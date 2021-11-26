@@ -7,4 +7,8 @@
         <SynchReleaseVersion>false</SynchReleaseVersion>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Folder Include=".github" />
+    </ItemGroup>
+
 </Project>
